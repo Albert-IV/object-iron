@@ -38,3 +38,6 @@ Flattens deeply nested object into a single level object.
     //   'info.tags[0]': 'person',
     //   'info.tags[1]': 'tagged',
     //   'info.tags[2]': 'arrays are cool' }
+
+#NOTE:
+At this point, objects with functions or XML will throw an error.  Planning on adding support for functions soon, and filtering options.
