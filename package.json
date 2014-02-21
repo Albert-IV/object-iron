@@ -1,0 +1,20 @@
+{
+  "name": "object-iron",
+  "version": "0.0.1",
+  "description": "Flattens nested objects into a single-level object",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/droppedonjapan/object-iron.git"
+  },
+  "keywords": [
+    "object",
+    "flatten",
+    "data"
+  ],
+  "author": "Albert Engelbrecht",
+  "license": "MIT"
+}
