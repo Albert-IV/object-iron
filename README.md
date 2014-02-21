@@ -40,4 +40,4 @@ Flattens deeply nested object into a single level object.
     //   'info.tags[2]': 'arrays are cool' }
 
 #NOTE:
-At this point, objects with functions or XML will throw an error.  Planning on adding support for functions soon, and filtering options.
+At this point, objects with functions or XML will throw an error.  Planning on adding support for functions soon, plus filtering options.

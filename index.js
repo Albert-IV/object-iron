@@ -1,5 +1,8 @@
-module.exports = function(originalObj) {
+var _filters = [];
+
+module.exports = function(originalObj, filters) {
   var flattenedObj = {};
+  _filters = filters;
 
   // This takes advantage of JS's passing objects by reference
   iterate(originalObj, flattenedObj, '');
@@ -26,15 +29,22 @@ function arrIterate(arr, flat, path) {
 }
 
 function checkType(key, val, obj, path) {
-  var type = typeof val;
+  var type = typeof val,
+      filter = _filters.indexOf(type) > -1;
 
   // Throw error if unsupported values are passed
-  if (type === "function" || type === "xml") {
+  // Really, just throwing an error because idk how JS XML works.
+  if (type === "xml") {
     throw new Error("Unsupported type passed!");
   }
 
+  // If filtered type, don't add anything.
+  if (filter) {
+    return;
+  }
+
   // If normal Key-Value, assign to flattened object
-  if (type === "boolean" || type === "string" || type === "number") {
+  if (type === "boolean" || type === "string" || type === "number" || type === "function") {
     var objKey = path || key;
     obj[objKey] = val;
     return;
