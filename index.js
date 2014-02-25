@@ -29,8 +29,7 @@ function arrIterate(arr, flat, path) {
 }
 
 function checkType(key, val, obj, path) {
-  var type = typeof val,
-      filter = _filters.indexOf(type) > -1;
+  var type = typeof val;
 
   // Throw error if unsupported values are passed
   // Really, just throwing an error because idk how JS XML works.
@@ -38,32 +37,31 @@ function checkType(key, val, obj, path) {
     throw new Error("Unsupported type passed!");
   }
 
-  // If filtered type, don't add anything.
-  if (filter) {
-    return;
-  }
-
-  // If normal Key-Value, assign to flattened object
-  if (type === "boolean" || type === "string" || type === "number" || type === "function") {
+  // If normal Key-Value and not filtered, assign to flattened object
+  if( (type === "boolean" || type === "string" || type === "number" || type === "function") &&
+      _filters.indexOf(type) === -1 ) {
     var objKey = path || key;
     obj[objKey] = val;
     return;
   }
 
-  // Otherwise if an object
-  if (type === 'object') {
+  // Otherwise is object-like
 
-    // If value is an array, iterate again
-    if (Array.isArray(val)) {
-      arrIterate(val, obj, path);
+  if (type == "object") {
+
+    // If value is an array and not filtered, iterate again
+    if (Array.isArray(val) && _filters.indexOf("array") === -1) {
+      return arrIterate(val, obj, path);
+    }
     
-    // Otherwise is an object, and iterates
-    } else {
+    // Otherwise is an object, so iterate
+    // Check is to ensure filtered arrays don't get included
+    if (!Array.isArray(val)) {
       var objPath = path + '.';
       return iterate(val, obj, objPath);
     }
   }
 
-  // If value is an 'undefined' or otherwise falsy value,
+  // If value 'undefined' or filtered,
   // don't add it to the flattened object
 }
