@@ -1,7 +1,7 @@
 object-iron
 ===========
 
-Flattens deeply nested object into a single level object.
+Flattens deeply nested object into a single level object with optional filtering.
 
     var flatten = require('object-iron');
     var nestedObject = {
