@@ -23,7 +23,7 @@ Flattens deeply nested object into a single level object with optional filtering
         tags : [
           "person",
           "tagged",
-          "arrays are cool"
+          { "objects" : "work here too" }
         ]
       }
     };
@@ -37,7 +37,7 @@ Flattens deeply nested object into a single level object with optional filtering
     //   'info.needless.nesting.check.it': 'out',
     //   'info.tags[0]': 'person',
     //   'info.tags[1]': 'tagged',
-    //   'info.tags[2]': 'arrays are cool' }
+    //   'info.tags[2].objects': 'work here too' }
 
 # Filtering
 
