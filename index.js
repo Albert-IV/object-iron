@@ -1,8 +1,8 @@
-var _filters = [];
+var _filters;
 
 module.exports = function(originalObj, filters) {
   var flattenedObj = {};
-  _filters = filters;
+  _filters = filters || [];
 
   // This takes advantage of JS's passing objects by reference
   iterate(originalObj, flattenedObj, '');
