@@ -1,6 +1,6 @@
 {
   "name": "object-iron",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Flattens nested objects into a single-level object",
   "main": "index.js",
   "scripts": {
