@@ -41,6 +41,6 @@ Flattens deeply nested object into a single level object with optional filtering
 
 # Filtering
 
-This library also accepts an optional array of types to filter on.  Accepts all types from typeof, as well as `array`.  Check MDN documentation for list: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#Description
+This library also accepts an optional array of types to filter on.  Accepts all types from typeof, as well as `array`.  [Check the MDN documentation for the list.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#Description]
 
 Be careful with array filtering, as this could remove more than just array values (arrays of nested objects, for example).
