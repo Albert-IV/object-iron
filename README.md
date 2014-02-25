@@ -39,5 +39,8 @@ Flattens deeply nested object into a single level object.
     //   'info.tags[1]': 'tagged',
     //   'info.tags[2]': 'arrays are cool' }
 
-#NOTE:
-At this point, objects with functions or XML will throw an error.  Planning on adding support for functions soon, plus filtering options.
+# Filtering
+
+This library also accepts an optional array of types to filter on.  (Accepts all types from typeof, as well as `array`.)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof#Description]
+
+Be careful with array filtering, as this could remove more than just array values (arrays of nested objects, for example).
